@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope Macebo-Mupupuni - Resume</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="resume">
+    <header>
+      <h1>Hope R. Macebo-Mupupuni</h1>
+      <p>
+        <a href="mailto:hopemupupuni@gmail.com">hopemupupuni@gmail.com</a> | 
+        803-297-0264 | Columbia, SC | 
+        <a href="https://www.linkedin.com/in/hope-mupupuni">LinkedIn</a>
+        <a href="https://github.com/HopeRumbie"> | Github</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>
+        AWS Certified Cloud Practitioner and M.S. Information Technology student at the University of South Carolina. 
+        Strong background in business management and IT, with hands-on experience in network support, project management, 
+        and cloud computing through working with the university’s IT Network Services. Seeking opportunities where I can use my 
+        skills to create impactful solutions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <h3>University of South Carolina – Molinaroli College of Engineering and Computing</h3>
+        <p><em>Master of Science in Information Technology, Expected Spring 2026</em> | GPA: 3.67</p>
+        <ul>
+          <li>Courses: Enterprise Network Management, Cloud Computing & Virtualization, Linux Programming & Administration</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Catholic University of Zimbabwe</h3>
+        <p><em>Bachelor of Business Management and Information Technology, Awarded Dec 2019</em></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="item">
+        <h3>University of South Carolina – IT Network Services (Columbia, SC, USA)</h3>
+        <p><em>Student Worker | Aug 2025 – Present</em></p>
+        <ul>
+          <li>Troubleshoot, replace, and provision 50+ wireless access points across campus to ensure connectivity for 10,000+ students and staff.</li>
+          <li>Update Aruba and Cisco network tools with device metadata to ensure accurate asset tracking and configuration.</li>
+          <li>Delegate and coordinate tasks for a 5-person student IT team, supporting efficient workflow and timely issue resolution.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>University of South Carolina – AV/IT Warehouse Support (Columbia, SC, USA)</h3>
+        <p><em>May 2025 – July 2025</em></p>
+        <ul>
+          <li>Supported AV/IT warehouse operations, ensuring inventory accuracy and proper equipment storage.</li>
+          <li>Received and documented 40+ IT/AV equipment deliveries and collaborated with Warehouse Control Manager on logistics.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>HT-Solutions (Bulawayo, Zimbabwe)</h3>
+        <p><em>Web Design Specialist | Oct 2023 – Nov 2024</em></p>
+        <ul>
+          <li>Led the design and development of websites, boosting organic traffic through strategic on-page SEO practices.</li>
+          <li>Utilized analytical tools to track website performance and make data-driven decisions for optimization, including Google Analytics and SEO tools.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li>AWS Certified Cloud Practitioner <a href="https://www.credly.com/badges/1a810cb5-a952-4d0c-82a4-c54da22915c0/public_url"> View Certificate </a> – Aug 2025</li>
+        <li>Google Data Analytics Professional Certificate <a href="https://www.coursera.org/account/accomplishments/specialization/YXENWNFVNBDK"> View Certificate </a> – Aug 2022</li>
+      </ul>
+    </section>
+    <section class="section">
+                <h2 class="section-title">Projects</h2>
+                
+                <div class="project">
+                    <h4 class="project-title">Cloud Resume Challenge</h4>
+                    <p class="project-description">
+                        Built a serverless resume website using AWS services including S3, CloudFront, Lambda, 
+                        API Gateway, and DynamoDB. Implemented CI/CD pipeline with GitHub Actions and Infrastructure as Code with SAM.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Lambda</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">SAM</span>
+                    </div>
+                </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <p><strong>Technical Skills:</strong> HTML/CSS, PHP, SQL, SEO, R, AWS, Linux</p>
+      <p><strong>Tools:</strong> Trello, Microsoft Office, Excel, Google Analytics, WordPress, AWS,Linux</p>
+      <p><strong>Soft Skills:</strong> Communication, Critical Thinking, Project Management, Team Collaboration</p>
+    </section>
+  </div>
+
+
+
+      <footer class="footer">
+  
+    <p>🔢 Page Views: <span id="viewCount">Loading...</span></p>
+  
+  <p class="footer-note">This resume is hosted on AWS using serverless architecture</p>
+</footer>
+
+<script>
+        const functionUrl = "https://bnrxyessa33pnmmqqzavgnbi4i0ngtfy.lambda-url.us-east-1.on.aws/";
+      
+        async function fetchViewCount() {
+          try {
+            const response = await fetch(functionUrl);
+            const data = await response.json();
+      
+            // Display the view count
+            document.getElementById("viewCount").innerText = data.views;
+          } catch (error) {
+            console.log(error)
+            console.error("Error fetching view count:", error);
+            document.getElementById("viewCount").innerText = "error";
+          }
+        }
+      
+        // Run when the page loads
+        window.onload = fetchViewCount;
+  </script>
+
+</body>
+</html>

@@ -1,3 +1,7 @@
-deploy_frontend.py
+*.zip
 __pycache__/
 *.pyc
+.aws/
+credentials
+*.env
+backend/*.zip

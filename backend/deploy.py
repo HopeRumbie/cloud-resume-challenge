@@ -2,16 +2,16 @@ import boto3
 import zipfile
 import os
 
-# Configuration - UPDATE THESE!
-LAMBDA_FUNCTION_NAME = 'MyResumeViewsCountFunction'  # Change this!
-REGION = 'us-east-1'  # Change if your Lambda is in a different region
+
+LAMBDA_FUNCTION_NAME = 'MyResumeViewsCountFunction'  
+REGION = 'us-east-1'  
 
 def create_deployment_package():
     """Zip up the Lambda function"""
     zip_file = 'lambda_deployment.zip'
     
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zipf:
-        zipf.write('lambda_function.py')
+        zipf.write('lambda_function.py', 'lambda_function.py')
     
     print(f"✓ Created {zip_file}")
     return zip_file
