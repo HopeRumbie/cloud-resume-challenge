@@ -25,7 +25,7 @@ def lambda_handler(event, context):
 
         if method == 'POST':
             resp = table.update_item(
-                Key={'pk': 'counter'},
+                Key={'id': 'counter'},  # CHANGED from 'pk' to 'id'
                 UpdateExpression='SET visits = if_not_exists(visits, :start) + :inc',
                 ExpressionAttributeValues={':inc': 1, ':start': 0},
                 ReturnValues='UPDATED_NEW'
@@ -38,7 +38,7 @@ def lambda_handler(event, context):
             }
 
         # GET
-        resp = table.get_item(Key={'pk': 'counter'})
+        resp = table.get_item(Key={'id': 'counter'})  # CHANGED from 'pk' to 'id'
         views = resp.get('Item', {}).get('visits', 0)
         return {
             'statusCode': 200,
