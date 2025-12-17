@@ -5,7 +5,6 @@ import boto3
 TABLE_NAME = os.environ.get('TABLE_NAME', 'MyResumeViewCount')
 dynamodb = boto3.resource('dynamodb', region_name=os.environ.get('AWS_REGION', 'us-east-1'))
 table = dynamodb.Table(TABLE_NAME)
-CORS = '*'
 
 def lambda_handler(event, context):
     try:
@@ -19,9 +18,7 @@ def lambda_handler(event, context):
             return {
                 'statusCode': 204,
                 'headers': {
-                    'Access-Control-Allow-Origin': CORS,
-                    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type'
+                    'Content-Type': 'application/json'
                 },
                 'body': ''
             }
@@ -36,7 +33,7 @@ def lambda_handler(event, context):
             views = resp.get('Attributes', {}).get('visits', 0)
             return {
                 'statusCode': 200,
-                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': CORS},
+                'headers': {'Content-Type': 'application/json'},
                 'body': json.dumps({'views': views})
             }
 
@@ -45,7 +42,7 @@ def lambda_handler(event, context):
         views = resp.get('Item', {}).get('visits', 0)
         return {
             'statusCode': 200,
-            'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': CORS},
+            'headers': {'Content-Type': 'application/json'},
             'body': json.dumps({'views': views})
         }
 
@@ -53,6 +50,6 @@ def lambda_handler(event, context):
         print(e)
         return {
             'statusCode': 500,
-            'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': CORS},
+            'headers': {'Content-Type': 'application/json'},
             'body': json.dumps({'error': 'server error'})
         }
