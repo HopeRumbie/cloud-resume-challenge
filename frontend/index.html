@@ -110,31 +110,12 @@
 
       <footer class="footer">
   
-    <p>🔢 Page Views: <span id="viewCount">Loading...</span></p>
+    <p>🔢 Page Views: <span id="visitor-count">0</span></p>
   
   <p class="footer-note">This resume is hosted on AWS using serverless architecture</p>
 </footer>
 
-<script>
-        const functionUrl = "https://bnrxyessa33pnmmqqzavgnbi4i0ngtfy.lambda-url.us-east-1.on.aws/";
-      
-        async function fetchViewCount() {
-          try {
-            const response = await fetch(functionUrl);
-            const data = await response.json();
-      
-            // Display the view count
-            document.getElementById("viewCount").innerText = data.views;
-          } catch (error) {
-            console.log(error)
-            console.error("Error fetching view count:", error);
-            document.getElementById("viewCount").innerText = "error";
-          }
-        }
-      
-        // Run when the page loads
-        window.onload = fetchViewCount;
-  </script>
+<script src="script.js"></script>
 
 </body>
 </html>
